@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<report 
+            id="report_product_barcode" 
+            string="Product Barcode Print" 
+            model="product.product" 
+            report_type="qweb-pdf" 
+            name="product_barcode_print.report_product_barcode_template" 
+            file="product_barcode_print.report_product_barcode_template"
+	    />
+	
+	<!--<record id="product_barcode_qweb" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="paperformat_barcode_label_product"/>
+        </record>-->
+	
+    </data>
+</openerp>

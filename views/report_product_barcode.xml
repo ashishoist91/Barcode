@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>    
+    <template id="report_product_barcode_template">
+        <t t-foreach="docs" t-as="o">
+            <div class="page" style="margin-left: -3mm;">
+                <table style="font-size:10.0px;" cellspacing="0">
+                    <tr style="height: 25mm;width: 40mm">
+                        <td align="center" style="width: 78mm;padding: 0mm 0mm 0mm 0mm;">
+                            <span style="font-size:12.0px;" t-esc="o.name"/><br/>
+                            <span style="font-size:14.0px; font-weight:bold;" t-esc="formatLang(o.lst_price, currency_obj = res_company.currency_id)"/><br/>
+                            <span>
+                               <img style="width: 30mm;height: 8mm;" t-att-src="'data:image/png;base64,'+generateBarcode(generateBarecodeString(o.default_code, o.ean13))"/>
+                            </span>
+                            <br/><span t-esc="o.default_code"/>
+                            <br/><span t-esc="o.ean13"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    <!--<t t-name="report_product_barcode_template">
+                <div class="page" style="margin-left: -3mm;">
+                    <h2>Report title</h2>
+                    <p><span t-esc="generateHello()"/></p>
+                </div>
+    </t>-->
+
+</template>
+
+</data>
+</openerp>
